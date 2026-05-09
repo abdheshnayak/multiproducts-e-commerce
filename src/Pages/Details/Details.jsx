@@ -27,60 +27,64 @@ const Details = (props) => {
 
 
     }, [])
-     return (
+    return (
         <>
-            {product ? (
-                <MataData
-                    id={product.id}
-                    title={product.title}
-                    desc={product.description}
-                    image={product.images}
-                />
-            ) : (
-                <p>Loading...</p>
-            )}
-
-            {
-                product ? (
-                    <>
-                        <OtherDetails
+            <div className="allDetails">
+                <div className="divfill">
+                    {product ? (
+                        <MataData
                             id={product.id}
-                            desc={product.description}
                             title={product.title}
-                            discount={product.discountPercentage}
-                            price={product.price}
-                            rating={product.rating}
-                            reviews={product.reviews}
+                            desc={product.description}
+                            image={product.images}
                         />
-                        {/* <p>{product.id}</p> */}
-                    </>
-                    // {}
-                ) : (
-                    <p>nothing ...</p>
-                )
-            }
-            {
-                product ? (
-                    (<ProdDet
-                        desc={product.description}
-                        dim={product.dimensions}
-                    />)
-                ) :
-                    (<p>error</p>)
-            }
-            {
-                product ? (
-                    < Rating 
-                    id={product.id}
-                    rating={product.rating}
-                    reviewsl={product.reviews.length}
-                    reviews={product.reviews}
-                    />
-                ) :(
-                    <p>error ...</p>
-                )
-            }
-
+                    ) : (
+                        <p>Loading...</p>
+                    )}
+                </div>
+                <div className="fillDiv">
+                    {
+                        product ? (
+                            <>
+                                <OtherDetails
+                                    id={product.id}
+                                    desc={product.description}
+                                    title={product.title}
+                                    discount={product.discountPercentage}
+                                    price={product.price}
+                                    rating={product.rating}
+                                    reviews={product.reviews}
+                                />
+                                {/* <p>{product.id}</p> */}
+                            </>
+                            // {}
+                        ) : (
+                            <p>nothing ...</p>
+                        )
+                    }
+                    {
+                        product ? (
+                            (<ProdDet
+                                desc={product.description}
+                                dim={product.dimensions}
+                            />)
+                        ) :
+                            (<p>error</p>)
+                    }
+                    {
+                        product ? (
+                            < Rating
+                                id={product.id}
+                                rating={product.rating}
+                                reviewsl={product.reviews.length}
+                                reviews={product.reviews}
+                            />
+                        ) : (
+                            <p>error ...</p>
+                        )
+                    }
+                </div>
+            </div>
         </>
 
     )

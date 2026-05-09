@@ -23,7 +23,7 @@ const AllReview = () => {
                 <p>{title}</p>
                 <h2 onClick={handleCut}>&#215;</h2>
             </div>
-            <hr className="hr"></hr>
+            <hr ></hr>
             {
                 review.map((e, i) => {
 
