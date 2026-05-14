@@ -64,6 +64,7 @@
     font-size:medium;
      border-radius: 5px;
      margin-bottom: 20px;
+     cursor: pointer;
 }
 
 .CartDiv button:first-of-type{

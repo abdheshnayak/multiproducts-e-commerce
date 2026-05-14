@@ -10,13 +10,12 @@ const OtherDetails = (props) => {
                (
                   <div className='boxDiv'>
                   <Box
-
                      title={title}
                      price={price}
                      discount={discount}
                      rating={rating}
                      reviews={reviews}
-                     desc={desc}
+                     // desc={desc}
                   />
                   </div>
                ) : (<p>error</p>) 

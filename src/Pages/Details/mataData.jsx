@@ -5,12 +5,15 @@ import CartImg from './Cart1.png'
 import Box from '../../FetchDataCard/Box'
 const MataData = (props) => {
     const Nevigate = useNavigate()
+    const [id,setId]=useState(props.id)
+
     const [image, setImage] = useState(props.image)
     const [img, setImg] = useState(image[0])
 
     const handleImage = (index, img) => {
         setImg(img)
     }
+
 
     return (
         <>
@@ -36,7 +39,7 @@ const MataData = (props) => {
                         <div className='CartDiv'>
 
                             <button
-                            onClick={()=>Nevigate("/Cart")}
+                            onClick={()=>Nevigate("/Cart",{state : {id :id}})}
                             >
                                 Add to Cart
                                 <img src={CartImg} alt='img' ></img>

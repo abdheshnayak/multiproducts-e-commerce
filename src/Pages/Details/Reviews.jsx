@@ -4,10 +4,10 @@ const Reviews = (props) => {
  const nevigate=useNavigate()
 
     const { reviews ,id} = props
-    console.log(reviews);
+    // console.log(reviews);
 
 const count=reviews.length
-console.log(count);
+// console.log(count);
 const handleClick =()=>{
     nevigate(`/AllReview/${id}`)
 

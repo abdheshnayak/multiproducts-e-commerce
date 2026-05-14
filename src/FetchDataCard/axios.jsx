@@ -17,8 +17,6 @@ function Axioss() {
             setFetchData(data.data.products)
             console.log(data.data.products);
 
-
-
         } catch (error) {
             console.log(error);
 
