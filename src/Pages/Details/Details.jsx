@@ -5,12 +5,15 @@ import OtherDetails from "./OtherDetails";
 import ProdDet from './Prodetails'
 import Rating from './Rating'
 import Reviews from './Reviews'
+import Spinner from "./spinner"
 const Details = (props) => {
 
     const { id } = useParams();
     const [product, setProduct] = useState(null)
+    const [load, setLoad] = useState(false)
     const fetchData = async () => {
         try {
+            setLoad(true)
             const response = await fetch(`https://dummyjson.com/products/${id}`)
             const data = await response.json()
             setProduct(data)
@@ -18,6 +21,8 @@ const Details = (props) => {
         catch (error) {
             console.log("error");
 
+        } finally {
+            setLoad(false)
         }
 
     }
@@ -27,8 +32,13 @@ const Details = (props) => {
 
 
     }, [])
+
+   
     return (
         <>
+            {
+                load && <Spinner />
+            }
             <div className="allDetails">
                 <div className="divfill">
                     {product ? (
@@ -37,9 +47,11 @@ const Details = (props) => {
                             title={product.title}
                             desc={product.description}
                             image={product.images}
+                            
                         />
+
                     ) : (
-                        <p>Loading...</p>
+                        <p></p>
                     )}
                 </div>
                 <div className="fillDiv">
@@ -48,7 +60,7 @@ const Details = (props) => {
                             <>
                                 <OtherDetails
                                     id={product.id}
-                                    desc={product.description}
+                                    // desc={product.description}
                                     title={product.title}
                                     discount={product.discountPercentage}
                                     price={product.price}
@@ -59,7 +71,7 @@ const Details = (props) => {
                             </>
                             // {}
                         ) : (
-                            <p>nothing ...</p>
+                            <p></p>
                         )
                     }
                     {
@@ -69,7 +81,7 @@ const Details = (props) => {
                                 dim={product.dimensions}
                             />)
                         ) :
-                            (<p>error</p>)
+                            (<p></p>)
                     }
                     {
                         product ? (
@@ -80,9 +92,10 @@ const Details = (props) => {
                                 reviews={product.reviews}
                             />
                         ) : (
-                            <p>error ...</p>
+                            <p></p>
                         )
                     }
+
                 </div>
             </div>
         </>

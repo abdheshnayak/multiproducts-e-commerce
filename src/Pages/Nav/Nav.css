@@ -141,3 +141,16 @@
 
     /* #link */
 }
+
+/* Light */
+body.light {
+  background: white;
+  color: black;
+  
+}
+
+/* Dark */
+body.dark {
+  background: #121212;
+  color: white;
+}

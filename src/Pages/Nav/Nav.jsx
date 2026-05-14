@@ -4,22 +4,27 @@ import SignUp from '../signUp/Sign'
 import { useNavigate } from 'react-router-dom'
 import menu from './menubar1.png'
 import cross from './cross-23.png'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 const Nav = () => {
+   
     const navigate = useNavigate()
     const [menuu, setmenu] = useState(true)
 
     const handleMenu = () => {
-        
-            setmenu(false)
-        
+
+        setmenu(false)
+
     }
     const handlecross = () => {
-       
-            setmenu(true)
-        
+
+        setmenu(true)
+
     }
+
+    const SignUpUser = JSON.parse(localStorage.getItem("SignUpUser"));
+
     
+
     return (
         <>
             <div className='NavBar'>
@@ -27,15 +32,21 @@ const Nav = () => {
                     <img src={Bird} alt="image" className='birdImg' />
                 </div>
                 <div id='links'>
-                   <div id='link' className={menuu ? "" : "active"}>
+                    <div id='link' className={menuu ? "" : "active"}>
                         <a className='a' href="" target="_blank">Home</a>
                         <a className='a' href="">Product</a>
                         <a className='a' href="">About</a>
                         <a className='a' href="">Contact</a>
                     </div>
-                    <div>
-                        <button id='button' onClick={() => navigate('/Signup')} >Sign Up</button>
-                    </div>
+                   
+                    {
+                        !SignUpUser && (
+                            <div>
+                                <button id='button' onClick={() => navigate('/Signup')} >Sign Up</button>
+                            </div>
+                        )
+                    }
+
                     <div>
                         {
                             menuu ?

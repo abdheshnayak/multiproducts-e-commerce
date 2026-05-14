@@ -33,6 +33,8 @@ function SignUp() {
             setErrorEmail(false)
         }
 
+        localStorage.setItem("SignUpUser",JSON.stringify(details));
+
         if (valid) {
             if (details.user === 'customer') {
                 nevigate('/landing')   // ✅ lowercase
@@ -59,11 +61,14 @@ function SignUp() {
         password: '',
         user: 'customer'  //default
     })
+ 
 
 
     const handleChange = (event) => {
         const { name, value } = event.target;
         setDetails(prev => ({ ...prev, [name]: value }))
+       
+        
     }
 
     return (<>

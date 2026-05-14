@@ -8,12 +8,15 @@ import Service from './Pages/ServiceProvider/ServiceProvider'
 import Admin from './Pages/Admin/Admin'
 import Details from './Pages/Details/Details'
 import AllReview from './Pages/Details/AllReview'
+import Cart from './Pages/Cart/Cart'
+
 function App() {
 
   function Landing() {
     return (
       <>
         <Nav />
+       
         <Axioss />
       </>
     )
@@ -41,10 +44,11 @@ function App() {
         <Route path='/' element={<Landing/>} />
         <Route path='/landing' element={<Landing />} />
         <Route path='/SignUp' element={<SignUp/>}/>
-        <Route path='/Provider' element={<Provider/>}/>
-        <Route path='/Admin' element={<AdminPage/>}/>
+        {/* <Route path='/Provider' element={<Provider/>}/> */}
+        {/* <Route path='/Admin' element={<AdminPage/>}/> */}
         <Route path='/Details/:id' element={<Details/>}/>
        <Route path='/AllReview/:id' element={<AllReview/>}/>
+       <Route path='/Cart' element={<Cart/>}/>
       </Routes>
     </BrowserRouter>
 
