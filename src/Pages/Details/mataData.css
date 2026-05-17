@@ -54,7 +54,7 @@
     gap: 20px;
 }
 
-.CartDiv button{
+.Cart button{
    display: flex;
    align-items: center;
    justify-content: center;
@@ -67,7 +67,7 @@
      cursor: pointer;
 }
 
-.CartDiv button:first-of-type{
+.Cart button:first-of-type{
    color: purple;
     border-color: purple;
     display: flex;
@@ -76,7 +76,7 @@
   
 }
 
-.CartDiv button:last-of-type{
+.Cart button:last-of-type{
     background-color: purple;
     color: white;
     border: none;
@@ -85,7 +85,7 @@
   /* border: px solid purple; */
 }
 
-.CartDiv img{
+.Cart img{
     height: 33px;
     width: 35px;
    filter: invert(10%) sepia(90%) saturate(500%) hue-rotate(260deg);

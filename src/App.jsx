@@ -9,6 +9,7 @@ import Admin from './Pages/Admin/Admin'
 import Details from './Pages/Details/Details'
 import AllReview from './Pages/Details/AllReview'
 import Cart from './Pages/Cart/Cart'
+import Buy from './Pages/Cart/Buy'
 
 function App() {
 
@@ -49,6 +50,7 @@ function App() {
         <Route path='/Details/:id' element={<Details/>}/>
        <Route path='/AllReview/:id' element={<AllReview/>}/>
        <Route path='/Cart' element={<Cart/>}/>
+       <Route path='/Buy' element={<Buy/>}/>
       </Routes>
     </BrowserRouter>
 

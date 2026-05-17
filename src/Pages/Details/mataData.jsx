@@ -36,7 +36,7 @@ const MataData = (props) => {
                         <div className='Img'>
                             <img src={img} />
                         </div>
-                        <div className='CartDiv'>
+                        <div className='CartDiv Cart'>
 
                             <button
                             onClick={()=>Nevigate("/Cart",{state : {id :id}})}

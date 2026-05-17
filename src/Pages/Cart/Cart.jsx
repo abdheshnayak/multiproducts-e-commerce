@@ -1,12 +1,17 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import "./Cart.css"
 import { useEffect, useState } from "react";
 import GetDetails from '../../FetchDataCard/current'
 import Spin from '../Details/spinner'
 import BoxDiv from "../Details/OtherDetails"
 import Box from '../../FetchDataCard/Box'
+import Buy from './Buy'
+
 // import OtherDetails from "../Details/OtherDetails";
 const Cart = () => {
+
+    const nevigate = useNavigate()
+
     const [product, setProduct] = useState([])
     const fetchApi = async () => {
         try {
@@ -45,56 +50,89 @@ const Cart = () => {
             })
         }
     }, [id]);
-    console.log(product.minimumOrderQuantity);
 
-    const [count  ,setCount]=useState(0)
-    useEffect(() => {
-    const item = product.find(p => p.id === id);
+    const [stockArr, setStockArr] = useState({})
 
-    if (item) {
-        setCount(item.minimumOrderQuantity || 1);
-    }
-}, [product, id]);
-
-     const plus = (min) => {
-        console.log("min ",min);
-        
-        setCount(prev => prev + min)
+    const plus = (qntId, qnt) => {
+        setStockArr(prev => ({
+            ...prev,
+            [qntId]: (prev[qntId] || qnt) + qnt
+        }))
     }
 
-    const minus = () => {
+    const minus = (qntId, qnt) => {
+        setStockArr(prev => ({
+            ...prev,
+            [qntId]: Math.max((prev[qntId] || qnt) - qnt, qnt)
+        }))
+    }
+
+
+    const Date = (ship, id) => {
+        const num = ship.match(/\d+/g) || []
+        const numMap = num.map(Number)
+        const date = new window.Date()
+        date.setDate(
+            date.getDate() + Math.max(...numMap)
+        )
+        return date.toDateString()
+    }
+
+    const nev = () => {
+
+        nevigate('/Buy')
+    }
+
+    const Delete = (id) => {
+        setArr(prev => {
+            const update = prev.filter(item => item !== id)
+            localStorage.setItem("CartId", JSON.stringify(update))
+            return update;
+        })
 
     }
+
     return (
         <>
             {
                 product.filter((e) => arr.includes(e.id))
                     .map((p, i) => {
                         console.log("p :  ", p.minimumOrderQuantity);
+                        const qnt = stockArr[p.id] || p.minimumOrderQuantity
+                        // console.log(p[id]?.images?.[0]);
+
                         return (
-                            <div key={i}>
-                                <div>
-                                    {/* <img src={p.images[0]} alt="img"/> */}
+                            <div key={i} className="stock boxDiv boxP ">
+                                <div className="flex stockFlex">
+                                    <div> 
+                                        <div>
+                                            <img src={p.images?.[0]} alt="img" className="stockImg" />
+                                        </div>
+                                        <div className="qntDiv">
+                                            <button onClick={() => plus(p.id, p.minimumOrderQuantity)} className="qntBtn">&#x2b;</button>
+                                            <p className="qnt">Qnt {qnt}</p>
+                                            <button onClick={() => minus(p.id, p.minimumOrderQuantity)} className="qntBtn">&#x2212;</button>
+                                        </div>
+                                    </div>
+                                    <div className="stockDiv" >
+                                        <Box
+                                            title={p.title}
+                                            price={p.price}
+                                            discount={p.discount}
+                                            rating={p.rating}
+                                            reviews={p.reviews}
+                                        />
+                                    </div>
                                 </div>
                                 <div>
-                                    <p onClick={() => { plus(p.minimumOrderQuantity) }}>&#x2b;</p>
-                                    <p>{count}</p>
-                                    <p onClick={minus}>&#x2212;</p>
+                                    <p className="date">Delivered on {Date(p.shippingInformation)}</p>
                                 </div>
-                                <Box
-                                    title={p.title}
-                                    price={p.price}
-                                    discount={p.discount}
-                                    rating={p.rating}
-                                    reviews={p.reviews}
-                                />
 
-                                {/* minimumOrderQuantity */}
-                                {/* minimumOrderQuantity  returnPolicy 
-shippingInformation warrantyInformation image
-*/}
+                                <div className="CartDiv Cart CartStock">
+                                    <button onClick={() => Delete(p.id)}>Delete</button>
+                                    <button onClick={nev}>Buy Now</button>
 
-                                {/* photo qantity title size rating reviews price discount delivery */}
+                                </div>
                             </div>
                         )
 
