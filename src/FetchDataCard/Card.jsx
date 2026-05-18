@@ -1,8 +1,8 @@
 // import 
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import Box from "./Box"
 const Card = (props) => {
-    const nevigate = useNavigate();
+    // const nevigate = useNavigate();
     
     
     return (

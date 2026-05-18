@@ -79,7 +79,6 @@ const Cart = () => {
     }
 
     const nev = () => {
-
         nevigate('/Buy')
     }
 
@@ -108,10 +107,12 @@ const Cart = () => {
                                         <div>
                                             <img src={p.images?.[0]} alt="img" className="stockImg" />
                                         </div>
-                                        <div className="qntDiv">
+                                        <div className="qntDiv flex">
+                                            {/* <div className="flex qnt"> */}
                                             <button onClick={() => plus(p.id, p.minimumOrderQuantity)} className="qntBtn">&#x2b;</button>
                                             <p className="qnt">Qnt {qnt}</p>
                                             <button onClick={() => minus(p.id, p.minimumOrderQuantity)} className="qntBtn">&#x2212;</button>
+                                       {/* </div> */}
                                         </div>
                                     </div>
                                     <div className="stockDiv" >
