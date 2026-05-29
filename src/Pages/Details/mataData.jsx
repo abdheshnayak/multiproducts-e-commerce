@@ -45,7 +45,7 @@ const MataData = (props) => {
                                 <img src={CartImg} alt='img' ></img>
                             </button>
 
-                            <button>Buy Now</button>
+                            <button >Buy Now</button>
                         </div>
                     </div>
 

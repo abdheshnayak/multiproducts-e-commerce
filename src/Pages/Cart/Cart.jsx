@@ -78,9 +78,7 @@ const Cart = () => {
         return date.toDateString()
     }
 
-    const nev = () => {
-        nevigate('/Buy')
-    }
+    
 
     const Delete = (id) => {
         setArr(prev => {
@@ -91,6 +89,13 @@ const Cart = () => {
 
     }
 
+    const nev = (id,qnt) => {
+        nevigate(`/Buy/${id}`,
+            {
+                state : {qnt}
+            }
+        )
+    }
     return (
         <>
             {
@@ -131,7 +136,7 @@ const Cart = () => {
 
                                 <div className="CartDiv Cart CartStock">
                                     <button onClick={() => Delete(p.id)}>Delete</button>
-                                    <button onClick={nev}>Buy Now</button>
+                                    <button onClick={()=> nev(p.id,qnt)}>Buy Now</button>
 
                                 </div>
                             </div>

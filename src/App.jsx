@@ -50,7 +50,7 @@ function App() {
         <Route path='/Details/:id' element={<Details/>}/>
        <Route path='/AllReview/:id' element={<AllReview/>}/>
        <Route path='/Cart' element={<Cart/>}/>
-       <Route path='/Buy' element={<Buy/>}/>
+       <Route path='/Buy/:id' element={<Buy/>}/>
       </Routes>
     </BrowserRouter>
 
