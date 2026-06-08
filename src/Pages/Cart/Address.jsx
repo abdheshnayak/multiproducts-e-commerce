@@ -60,7 +60,7 @@ const Address = () => {
     return (
         <>
             {!saved ? (
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} className="AddForm flex OrderP ">
                     <label htmlFor="fullName">Full Name :</label>
                     <input
                         type="text"
@@ -125,42 +125,42 @@ const Address = () => {
                         payment={payment}
                         setPayment={setPayment}
                     />
-                    <button type="submit">
+                    <button type="submit" className="Editbutton">
                         Save Address
                     </button>
                 </form>
             ) : (
                 <div>
-                    <h2>Saved Address</h2>
+                    <h2 className="Orderh">Details to be reach</h2>
+                    <div className="OrderP Orderdiv">
+                        <p>
+                            <strong>Name:</strong> {formData.fullName}
+                        </p>
 
-                    <p>
-                        <strong>Name:</strong> {formData.fullName}
-                    </p>
+                        <p>
+                            <strong>Address:</strong>{" "}
+                            {formData.houseNo}, {formData.address}
+                        </p>
 
-                    <p>
-                        <strong>Address:</strong>{" "}
-                        {formData.houseNo}, {formData.address}
-                    </p>
+                        <p>
+                            <strong>City:</strong> {formData.city}
+                        </p>
 
-                    <p>
-                        <strong>City:</strong> {formData.city}
-                    </p>
+                        <p>
+                            <strong>Pincode:</strong> {formData.pincode}
+                        </p>
 
-                    <p>
-                        <strong>Pincode:</strong> {formData.pincode}
-                    </p>
+                        <p>
+                            <strong>Nationality:</strong>{" "}
+                            {formData.nationality}
+                        </p>
 
-                    <p>
-                        <strong>Nationality:</strong>{" "}
-                        {formData.nationality}
-                    </p>
-
-                    <p>
-                        <strong>Payment:</strong>{" "}
-                        {payment}
-                    </p>
-
-                    <button onClick={handleEdit}>
+                        <p>
+                            <strong>Payment:</strong>{" "}
+                            {payment}
+                        </p>
+                    </div>
+                    <button onClick={handleEdit} className="Editbutton">
                         Edit Address
                     </button>
                 </div>

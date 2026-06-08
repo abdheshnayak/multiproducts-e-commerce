@@ -1,16 +1,17 @@
+import './Buy.css'
 const Order = (props) => {
     return (
         <>
             <div className="order-summary">
-                <h2>Order Summary</h2>
+                <h2 className='Orderh'>Order Summary</h2>
+                <div className='Orderdiv'>
+                    <p className='OrderP'>Price : ₹{Math.round(props.price * 80)}</p>
 
-                <p>Price : ₹{Math.round(props.price*80)}</p>
+                    <p className='OrderP'>Quantity : {props.qnt}</p>
 
-                <p>Quantity : {props.qnt}</p>
-
-                <p>Shipping : ₹40</p>
-
-                <h3>Total : ₹{Math.round((props.price*80) * props.qnt + 40)}</h3>
+                    <p className='OrderP'>Shipping : ₹40</p>
+                </div>
+                <h2 className='Orderh'>Total : ₹{Math.round((props.price * 80) * props.qnt + 40)}</h2>
             </div>
         </>
     )

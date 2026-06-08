@@ -1,12 +1,12 @@
 const Payment = ({ payment, setPayment }) => {
   return (
-    <div>
-      <h2>Payment Method</h2>
+    <div className="Payment ">
+      <h2 className="OrderP PayP">Payment Method</h2>
 
       <select
         value={payment}
         onChange={(e) =>
-          setPayment(e.target.value)
+          setPayment(e``.target.value)
         }
       >
         <option value="">

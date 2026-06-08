@@ -4,7 +4,9 @@ import { useNavigate } from 'react-router-dom'
 import CartImg from './Cart1.png'
 import Box from '../../FetchDataCard/Box'
 import Buy from '../Cart/Buy'
+import Spin from '../../Pages/Details/spinner'
 const MataData = (props) => {
+
     const Nevigate = useNavigate()
     const [id,setId]=useState(props.id)
 
@@ -14,7 +16,7 @@ const MataData = (props) => {
     const [img, setImg] = useState(image[0])
 
     const handleImage = (index, img) => {
-        setImg(img)
+        setImg(img);
     }
 
      const nav = (id,qnt) => {
@@ -23,10 +25,13 @@ const MataData = (props) => {
                 state : {qnt}
             }
         )
+
+       
     }
 
     return (
         <>
+        
             <div className='Div'>
                 <div className='divDivider'>
                     <div>
@@ -54,7 +59,7 @@ const MataData = (props) => {
                                 Add to Cart
                                 <img src={CartImg} alt='img' ></img>
                             </button>
-
+                           
                             <button onClick={()=>nav(id,qnt)} >Buy Now</button>
                         </div>
                     </div>

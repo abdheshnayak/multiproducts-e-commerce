@@ -1,0 +1,103 @@
+.Buy{
+    /* background-color: black; */
+    padding: 25px 5px;
+    
+}
+.Delivered{
+    color: gray;
+    font-weight: bolder;
+    margin-bottom: 10px;
+    padding-left: 18px;
+}
+.Buyimage{
+    padding: 15px 20px;
+}
+
+.BuyBox{
+    /* line-height: 1; */
+}
+.Order{
+    margin-top: 20px;
+    padding: 10px 20px;
+
+}
+
+.Orderh{
+     font-size: 17px;
+    font-weight: 700;
+}
+
+.OrderP{
+    font-size: 14px;
+    font-weight: 500;
+}
+.Orderdiv{
+    line-height: 1.5;
+    margin-top: 10px;
+    margin-bottom: 8px;
+}
+
+.Orderbutton{
+    background-color: purple;
+    color: white;
+    border: none;
+    padding: 10px 10px;
+    font-size: 16px;
+    border-radius: 20px;
+    margin-left: 20px;
+    margin-top: 15px;
+    /* width: 100%; */
+}
+
+.Editbutton{
+    background-color: rgb(47, 0, 128);
+    color: white;
+    border: none;
+    padding: 10px 10px;
+    font-size: 16px;
+     border-radius: 20px;
+}
+
+.AddForm{
+    flex-direction: column;
+    gap: 6px;
+}
+.AddForm label{
+    font-weight: 600;
+}
+
+.PayP{
+    font-weight: 600;
+    padding-bottom: 6px;
+}
+.Payment select{
+   margin-bottom: 10px;
+   padding: 8px;
+  font-weight: 600;
+  background-color: rgb(218, 217, 217);
+}
+.PayRadius{
+    border-radius: 10px;
+}
+.Payment option{
+    font-weight: 600;
+}
+
+.AddForm input{
+    padding: 6px;
+    border-radius: 5px;
+    border: 1px solid ;
+
+}
+
+.SucesP{
+    font-size: 7rem;
+}
+
+.success{
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    
+}

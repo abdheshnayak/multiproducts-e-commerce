@@ -37,7 +37,7 @@ const Details = (props) => {
     return (
         <>
             {
-                load && <Spinner />``
+                load && <Spinner />
             }
             <div className="allDetails">
                 <div className="divfill">
