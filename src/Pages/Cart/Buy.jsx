@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import Order from "./Order";
 import { placeOrder } from "./PlaceOrder";
 import Success from "./Success";
+
 const Buy = () => {
     const { id } = useParams()
     const location = useLocation()

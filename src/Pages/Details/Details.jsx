@@ -37,7 +37,7 @@ const Details = (props) => {
     return (
         <>
             {
-                load && <Spinner />
+                load && <Spinner />``
             }
             <div className="allDetails">
                 <div className="divfill">
@@ -47,7 +47,7 @@ const Details = (props) => {
                             title={product.title}
                             desc={product.description}
                             image={product.images}
-                            
+                            qnt={product.qnt}
                         />
 
                     ) : (

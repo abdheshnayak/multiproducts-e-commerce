@@ -3,9 +3,12 @@ import './mataData.css'
 import { useNavigate } from 'react-router-dom'
 import CartImg from './Cart1.png'
 import Box from '../../FetchDataCard/Box'
+import Buy from '../Cart/Buy'
 const MataData = (props) => {
     const Nevigate = useNavigate()
     const [id,setId]=useState(props.id)
+
+    const[qnt,setQnt]=useState(props.qnt)
 
     const [image, setImage] = useState(props.image)
     const [img, setImg] = useState(image[0])
@@ -14,6 +17,13 @@ const MataData = (props) => {
         setImg(img)
     }
 
+     const nav = (id,qnt) => {
+        Nevigate(`/Buy/${id}`,
+            {
+                state : {qnt}
+            }
+        )
+    }
 
     return (
         <>
@@ -45,7 +55,7 @@ const MataData = (props) => {
                                 <img src={CartImg} alt='img' ></img>
                             </button>
 
-                            <button >Buy Now</button>
+                            <button onClick={()=>nav(id,qnt)} >Buy Now</button>
                         </div>
                     </div>
 
